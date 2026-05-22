@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+</head>
+<body>
+    <h2>Sign Up Page</h2>
+   
+    <p>
+    Username:
+    <input type="text" id="signupUsername" oninput="cekSignUp()">
+    </p>
+
+    <p>
+    Password:
+    <input type="password" id="signupPassword" oninput="cekSignUp()">
+    <button type="button" onclick="showPassword('signupPassword')">Show</button>
+    </p>
+
+    <p>
+    Confirm Password:
+    <input type="password" id="confirmPassword" oninput="cekSignUp()">
+    <button type="button" onclick="showPassword('confirmPassword')">Show</button>
+    </p>
+
+    <button type="button" id="btnSignUp" disabled onclick="signUp()">
+         Sign Up
+    </button>
+
+    <script>
+    function cekSignUp() {
+        let username = document.getElementById("signupUsername").value;
+        let password = document.getElementById("signupPassword").value;
+        let confirm = document.getElementById("confirmPassword").value;
+
+        document.getElementById("btnSignUp").disabled =
+            !username || !password || !confirm;
+    }
+
+    function signUp() {
+    let password = document.getElementById("signupPassword").value;
+    let confirm = document.getElementById("confirmPassword").value;
+
+    if (password !== confirm) {
+        alert("Password dan Confirm Password tidak sama!");
+        return;
+    }
+
+    alert("Sign Up berhasil! Silahkan Login.");
+    window.location.href = "login2.html"; 
+    }
+
+    function showPassword(id) {
+        let x = document.getElementById(id);
+
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+    </script> 
+</body>
+</html>
