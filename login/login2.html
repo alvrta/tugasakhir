@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>
+        Login Page
+    </h2>
+    <p>
+        Username: 
+        <input type="text" id="username" oninput="cekLogin()">
+    </p>
+    <p>
+        Password: 
+        <input type="password" id="password" oninput="cekLogin()">
+        <button type="button" onclick="showPassword('password')">Show</button>
+    </p>
+    <button type="button" id="btnLogin" disabled onclick="login()">Login</button>
+
+    <hr/>
+    <p>Belum punya akun? <a href="signup2.html">Sign Up</a></p>
+
+    <script>
+    function cekLogin() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        document.getElementById("btnLogin").disabled = !username || !password;
+    }
+
+    function login() {
+    alert("Login berhasil!");
+    window.location.href = "alv.html?login=true";
+    }
+
+    function showPassword(id) {
+        let x = document.getElementById(id);
+
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+    </script>
+</body>
+</html
