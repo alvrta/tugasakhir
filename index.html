@@ -368,7 +368,13 @@ https://templatemo.com/tm-615-amber-folio
             </p>
         </div>
     </footer>
-    <script src="templatemo-amber-script.js"></script>
+   <script src="templatemo-amber-script.js"></script>
     <script src="login/js/welcome.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("login") === "true") {
+            document.getElementById("userInfo").textContent = "Sudah login";
+        }
+    </script>
 </body>
 </html>   
